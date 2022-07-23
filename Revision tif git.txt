@@ -1,0 +1,25 @@
+Principales.
+
+-Correguir confirmar compra.
+-Cuando se muestren las tarjetas, si se elige una se cargara el nro de tarjeta y fecha, para confirmarlo se debe ingresar codigo de seguridad.
+-Despues de agregar al carrito se debe mostrar un mensaje aclarandolo.
+-Si no esta iniciado sesion no podra agregar al carrito.
+-Decorar un poco mejor el detalle producto.
+-Poner carteles en admin (Agregar producto, categoria, sub,).
+-Eliminar autocompletado de contraseñas de navegador en iniciar sesion, registro.
+-Triger eliminar subcategoria con categoria eliminada.
+-Triger eliminar producto cuando su categoria o subcategoria es dada de baja.
+- Vaciar ddl cat y sub cat home cuando quitar filtros.
+- Cuando se modifica perfil se debe mostrar mensaje confirmación.
+- Cuando se inicia sesion se debe redirigir al home.
+- Arreglar footer iniciar sesion, registrarse, admin, reportes.
+- En registrarse.aspx se debe mostrar nombre del usuario en sesion.
+-Reportes Acomodar filtros.
+-SubCategorias se deben cargar en ddlCategorias selectedindexchanging.
+
+
+
+Adicionales.
+
+-masterpage
+-Centrar footer home.aspx
