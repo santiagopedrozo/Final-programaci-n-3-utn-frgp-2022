@@ -2887,6 +2887,10 @@ ON [dbo].[Categorias] INSTEAD OF DELETE AS
 	UPDATE Subcategorias
 	SET Estado_Subcategoria = 0
 	WHERE Id_Categoria_Subcategoria = (SELECT Id_Categoria from deleted)
+
+	UPDATE Productos
+	set Estado_Producto = 0
+	where Id_Categoria_Producto = (SELECT Id_Categoria from deleted)
 	END
 GO
 
@@ -3000,6 +3004,10 @@ ON Subcategorias INSTEAD OF DELETE AS
 	SET Estado_Subcategoria = 0
 	WHERE Id_Subcategoria = (SELECT Id_Subcategoria FROM deleted)
 		AND Id_Categoria_Subcategoria = (SELECT Id_Categoria_Subcategoria FROM deleted)
+
+	UPDATE Productos
+	set Estado_Producto = 0
+	where Id_Subcategoria_Producto = (SELECT Id_Categoria_Subcategoria from deleted)
 	END
 GO
 
@@ -3013,8 +3021,6 @@ ON Tarjetas INSTEAD OF DELETE AS
 		WHERE Numero_Tarjeta = (SELECT Numero_Tarjeta from deleted)
 	END
 GO
-
-
 
 CREATE TRIGGER TR_EliminarUsuario
 ON Usuarios INSTEAD OF DELETE AS
@@ -3034,8 +3040,6 @@ ON Usuarios INSTEAD OF DELETE AS
 	END
 GO
 
-
-
 --agregar cat
 CREATE procedure SP_AgregarCategoria
 @desc varchar(50)
@@ -3046,7 +3050,6 @@ insert into Categorias([Descripcion_Categoria])
 select @desc
 
 GO
-
 
 CREATE PROCEDURE SP_AgregarDetalleFactura
 @IDFACTURA int,
@@ -3069,8 +3072,6 @@ AS
 		END
 	END
 GO
-
-
 
 CREATE PROCEDURE SP_AgregarFactura
 @NROTARJETA char(20),
@@ -3102,8 +3103,6 @@ Insert into Productos(Nombre_Producto, Descripcion_Producto, Precio_Producto, Id
 Values(@NOMBREPRODUCTO, @DESCPRODUCTO, @PRECIO, @IDCATEGORIA, @IDSUBCATEGORIA, @STOCK, @URLIMAGEN)
 GO
 
-
-
 CREATE Procedure SP_AgregarReseña
 @IDPRODUCTOS INT,
 @DNIUSUARIO CHAR(10),
@@ -3125,7 +3124,6 @@ BEGIN
 END
 GO
 
-
 --agregar sub cat
 CREATE procedure SP_AgregarSubCategoria
 @desc varchar(50),
@@ -3137,9 +3135,6 @@ BEGIN
 	select @desc, @Cat
 END
 GO
-
-
-
 
 CREATE PROCEDURE SP_AgregarTarjeta
 @DNI CHAR(10),
@@ -3185,8 +3180,6 @@ else INSERT INTO Usuarios(DNI_Usuario,Nombre_Usuario,Apellido_Usuario,Email_Usua
     SELECT @DNI, @NOMBRE, @APELLIDO, @EMAIL, @CONTRASEÑA
 GO
 
-
-
 --Editar admin
 create procedure SP_EditarAdminUsuario
 @DNI char(10),
@@ -3218,7 +3211,6 @@ end
 
 GO
 
-
 --editar sub cat
 create procedure SP_EditarSubCategoria
 @idSubCat int,
@@ -3234,8 +3226,6 @@ begin
 end
 
 GO
-
-
 
 --editar usuario
 create procedure SP_EditarUsuario
@@ -3255,19 +3245,16 @@ BEGIN
 END
 GO
 
-
 --eliminar cat
-CREATE procedure SP_EliminarCategoria
+create procedure SP_EliminarCategoria
 @idCat int
 
 as
 
-update Categorias
-set Estado_Categoria = 0
+delete Categorias
 where Id_Categoria = @idCat
 
 GO
-
 
 CREATE PROCEDURE SP_EliminarFacturas
 @idFactura INT 
@@ -3287,20 +3274,15 @@ set Estado_Producto = 0
 where Id_Producto = @idProd
 GO
 
-
-
-
 --eliminar sub cat
 CREATE procedure SP_EliminarSubCategoria
 @idSubCat int
 
 as
 
-update subcategorias
-set Estado_Subcategoria = 0
+delete subcategorias
 where Id_Subcategoria = @idSubCat
 GO
-
 
 CREATE PROCEDURE SP_EliminarTarjeta
 @NROTARJETA char(20)
@@ -3309,20 +3291,11 @@ DELETE FROM Tarjetas
 WHERE Numero_Tarjeta = @NROTARJETA
 GO
 
-
-
-
-
-
-
 CREATE PROCEDURE SP_EliminarUsuario
 @DNI CHAR(10)
 AS
 DELETE FROM Usuarios WHERE DNI_Usuario = @DNI
 GO
-
-
-
 
 CREATE procedure SP_ModificarProducto
 @idProd INT,

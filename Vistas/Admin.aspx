@@ -31,9 +31,8 @@
         </div>
         <br />
         <br />
-        <asp:HiddenField ID="MensajeConfirmacion" Value="0" runat="server" />
 
-        <asp:DropDownList ID="ddlEleccionDiv" runat="server" AutoPostBack="True"  style="margin-left:620px">
+        <asp:DropDownList ID="ddlEleccionDiv" runat="server" AutoPostBack="True"  style="margin-left:620px" OnSelectedIndexChanged="ddlEleccionDiv_SelectedIndexChanged">
             <asp:ListItem Value=""></asp:ListItem>
             <asp:ListItem>Productos</asp:ListItem>
             <asp:ListItem>Categorías</asp:ListItem>
@@ -55,7 +54,7 @@
             &nbsp;&nbsp;
                 <asp:TextBox ID="txtNombreGrd" runat="server" Width="136px" placeholder="Nombre Producto"></asp:TextBox>
                  <asp:Button ID="btn_FiltrarGrdProd" runat="server" OnClick="btn_FiltrarGrdProd_Click" Text=" Filtrar" Width="78px" />
-                 <asp:Button ID="btn_SacarFiltrarGrdProd" runat="server" OnClick="btn_SacarFiltrarGrdProd_Click" Text=" Quitar filtros" Width="78px" />
+                 <asp:Button ID="btn_SacarFiltrarGrdProd" runat="server" OnClick="btn_SacarFiltrarGrdProd_Click" Text=" Quitar filtros" Width="107px" />
                  <br />
              </div>
              <asp:GridView ID="grdProductos" runat="server" AutoGenerateColumns="False" OnRowCancelingEdit="grdProductos_RowCancelingEdit" OnRowDeleting="grdProductos_RowDeleting" OnRowEditing="grdProductos_RowEditing" OnRowUpdating="grdProductos_RowUpdating" AllowPaging="True" PageSize="5" OnPageIndexChanging="grdProductos_PageIndexChanging1" OnRowDataBound="grdProductos_RowDataBound" CellPadding="4" ForeColor="#333333" GridLines="None">
@@ -169,7 +168,7 @@
     
                         </td>
                         <td class="auto-style40"><strong>
-                            <asp:Label ID="lblProductos0" runat="server" CssClass="auto-style36" Text="Agregar Productos"></asp:Label>
+                            <asp:Label class="label label-default" ID="lblProductos0" runat="server" CssClass="auto-style36" Text="Agregar Productos" style="font-size: xx-large"></asp:Label>
                             </strong></td>
                         <td>&nbsp;</td>
                     </tr>
@@ -276,7 +275,7 @@
              <asp:Button ID="btn_SacarFiltrosCat" runat="server" OnClick="btn_SacarFiltrosCat_Click" Text=" Quitar filtros" Width="78px" />
                  <br />
              <br />
-             <asp:GridView ID="grdCategorias" runat="server" AutoGenerateColumns="False" AllowPaging="True" OnRowCancelingEdit="grdCategorias_RowCancelingEdit" OnRowEditing="grdCategorias_RowEditing"  OnRowUpdating="grdCategorias_RowUpdating"  OnPageIndexChanging="grdCategorias_PageIndexChanging" OnRowDeleting="grdCategorias_RowDeleting" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowDataBound="grdCategorias_RowDataBound">
+             <asp:GridView ID="grdCategorias" runat="server" AutoGenerateColumns="False" AllowPaging="True" OnRowCancelingEdit="grdCategorias_RowCancelingEdit" OnRowEditing="grdCategorias_RowEditing"  OnRowUpdating="grdCategorias_RowUpdating"  OnPageIndexChanging="grdCategorias_PageIndexChanging" OnRowDeleting="grdCategorias_RowDeleting" CellPadding="4" ForeColor="#333333" GridLines="None" OnRowDataBound="grdCategorias_RowDataBound" >
 
                  <AlternatingRowStyle BackColor="White" />
                  <Columns>
@@ -310,6 +309,9 @@
                  <SortedDescendingCellStyle BackColor="#D4DFE1" />
                  <SortedDescendingHeaderStyle BackColor="#15524A" />
              </asp:GridView>
+             <strong>
+                            <asp:Label class="label label-default" ID="lblProductos1" runat="server" CssClass="auto-style36" Text="Agregar Categoría" style="font-size: xx-large"></asp:Label>
+                            </strong>
              <br />
              <asp:Label ID="lblDescripcionCat" runat="server" Text="Descripción:"></asp:Label>
              <asp:TextBox ID="txt_AgregarDescCat" runat="server" ValidationGroup="AgregarCat"></asp:TextBox>
@@ -372,6 +374,9 @@
                  <SortedDescendingCellStyle BackColor="#D4DFE1" />
                  <SortedDescendingHeaderStyle BackColor="#15524A" />
              </asp:GridView>
+                        <strong>
+                            <asp:Label class="label label-default" ID="lblProductos2" runat="server" CssClass="auto-style36" Text="Agregar SubCategoría" style="font-size: xx-large"></asp:Label>
+                            </strong>
              <br />
              <asp:Label ID="lblAgregarCat" runat="server" Text="Categoría:"></asp:Label>
              <asp:DropDownList ID="ddlAgregarCatSub" runat="server" AutoPostBack="True">

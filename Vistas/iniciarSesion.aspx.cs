@@ -33,9 +33,12 @@ namespace Vistas
         protected void btnIngresar_Click(object sender, EventArgs e)
         {
             Usuarios AuxUs = new Usuarios();
-            AuxUs.Email = floatingInput.Value;
-            AuxUs.Contraseña = floatingPassword.Value;
-
+            if(floatingInput.Value.Length.ToString() != "" && floatingPassword.Value.Length.ToString() != "")
+            {
+                AuxUs.Email = floatingInput.Value;
+                AuxUs.Contraseña = floatingPassword.Value;
+            }
+            
             if (logUs.verificarQueUsuarioExiste(AuxUs))
             {
                 lblMensaje.Text = "Sesión iniciada correctamente!!";
@@ -44,6 +47,7 @@ namespace Vistas
                 hlUsuario.Text = "Mi Perfil";
                 Usuarios usuarioNombre = (Usuarios)Session["Usuario"];
                 lblNombreUsuario.Text = usuarioNombre.Nombre + " " + usuarioNombre.Apellido;
+                Response.Redirect("Home.aspx");
             }
             else
             {

@@ -94,7 +94,8 @@ namespace Vistas
             Usuarios usAux = (Usuarios)Session[Globales.usuario];
             LogicaUsuarios logUs = new LogicaUsuarios();
             CargarUsuarioEdit(ref usAux);
-            lblExitoEnElCambio.Text = "Se ha modificado correctamente.";
+            String MensajeAlerta = string.Format("alert('Perfil modificado correctamente');");
+            ScriptManager.RegisterClientScriptBlock(Page, typeof(System.Web.UI.Page), "redirect", MensajeAlerta, true);
             Session[Globales.usuario] = usAux;
             CargadoCampos();
             LabelsUsuario(usAux);

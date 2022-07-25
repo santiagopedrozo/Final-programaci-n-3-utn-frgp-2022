@@ -196,7 +196,6 @@
                 <td class="auto-style41">
                     <asp:TextBox ID="txtCambiarApellido" runat="server" MaxLength="20"></asp:TextBox>
                     <br />
-                    <asp:RequiredFieldValidator ID="rfvApellido" runat="server" ControlToValidate="txtCambiarApellido" CssClass="auto-style44" ErrorMessage="No puede dejar campo apellido vacio" ValidationGroup="Perfil"></asp:RequiredFieldValidator>
                 </td>
                 <td class="auto-style38">
                     <asp:GridView ID="grdFacturas" runat="server" AutoGenerateColumns="False" AutoGenerateSelectButton="True" OnSelectedIndexChanging="grdFacturas_SelectedIndexChanging" CellPadding="4" ForeColor="#333333" GridLines="None">

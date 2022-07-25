@@ -33,15 +33,6 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.ImageButton imgBtn_Logo;
 
         /// <summary>
-        /// Control MensajeConfirmacion.
-        /// </summary>
-        /// <remarks>
-        /// Campo generado automáticamente.
-        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
-        /// </remarks>
-        protected global::System.Web.UI.WebControls.HiddenField MensajeConfirmacion;
-
-        /// <summary>
         /// Control ddlEleccionDiv.
         /// </summary>
         /// <remarks>
@@ -411,6 +402,15 @@ namespace Vistas
         protected global::System.Web.UI.WebControls.GridView grdCategorias;
 
         /// <summary>
+        /// Control lblProductos1.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblProductos1;
+
+        /// <summary>
         /// Control lblDescripcionCat.
         /// </summary>
         /// <remarks>
@@ -526,6 +526,15 @@ namespace Vistas
         /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
         /// </remarks>
         protected global::System.Web.UI.WebControls.GridView grdSubCategorias;
+
+        /// <summary>
+        /// Control lblProductos2.
+        /// </summary>
+        /// <remarks>
+        /// Campo generado automáticamente.
+        /// Para modificarlo, mueva la declaración del campo del archivo del diseñador al archivo de código subyacente.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblProductos2;
 
         /// <summary>
         /// Control lblAgregarCat.

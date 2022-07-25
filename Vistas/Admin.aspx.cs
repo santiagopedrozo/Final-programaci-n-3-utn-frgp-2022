@@ -64,7 +64,6 @@ namespace Vistas
             cargarDDLSubCategorias(ref ddlSubCategoriaGrd, 1);
             cargarDDLCategorias(ref ddlCategoriasGrdSub);
             cargarDDLCategorias(ref ddlAgregarCatSub);
-            //ddlAgregarCatSub.Items.FindByText("Fuentes alimentación").Selected = true;
             ddlAgregarCatSub.Items.Remove(ddlAgregarCatSub.Items.FindByValue("-1"));
         }
 
@@ -110,9 +109,6 @@ namespace Vistas
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!(Session[Globales.usuario] as Usuarios).EsAdmin)
-                Response.Redirect("Home.aspx");
-
             if (!IsPostBack)
             {
                 DeclaracionSessions();
@@ -120,11 +116,13 @@ namespace Vistas
                 cargadoGRD();
                 VaciarDivs();
             }
-            SeleccionDivs();
-            //MensajeConfirmacionProducto();
-            
+            SeleccionDivs();   
         }
 
+        protected void ddlEleccionDiv_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            cargadoGRD();
+        }
 
         private void cargarDDLCategorias(ref DropDownList ddl)
         {
@@ -174,41 +172,24 @@ namespace Vistas
             Response.Write(" nombre: " + _producto.Nombre.ToString() + " descripcion: " + _producto.Descripcion.ToString() + " precio: " + _producto.Precio.ToString() + " categoria: " + _producto.Subcategoria.Categoria.IdCategoria.ToString() + " subcategoria: " + _producto.Subcategoria.IdSubCategoria.ToString() + " stock: " + _producto.Stock.ToString() + " url: " + _producto.UrlImage.ToString());
         }
 
-        private bool MensajeConfirmacionProducto()
-        {
-            
-            return true;
-        }
-
         protected void grdProductos_RowUpdating(object sender, GridViewUpdateEventArgs e)
         {
             Productos _prod = new Productos();
             //cargarProductoEdit(ref _prod, e);
             LogicaProductos _logicaProd = new LogicaProductos();
 
-
-            
-            if (MensajeConfirmacionProducto())
+            if (_logicaProd.ActualizarProducto(_prod))
             {
-                if (_logicaProd.ActualizarProducto(_prod))
-                {
-                    String MensajeAlerta = string.Format("alert('editado correctamente');");
-                    ScriptManager.RegisterClientScriptBlock(Page, typeof(System.Web.UI.Page), "redirect", MensajeAlerta, true);
-                }
-                else
-                {
-                    String MensajeAlerta = string.Format("alert('No se pudo editar');");
-                    ScriptManager.RegisterClientScriptBlock(Page, typeof(System.Web.UI.Page), "redirect", MensajeAlerta, true);
-                }
-                        
-                CancelarEditingProductos();
+                String MensajeAlerta = string.Format("alert('editado correctamente');");
+                ScriptManager.RegisterClientScriptBlock(Page, typeof(System.Web.UI.Page), "redirect", MensajeAlerta, true);
             }
-            
-        }
-
-        protected void BtnConfirmar_Click(object sender, EventArgs e)
-        {
-
+            else
+            {
+                String MensajeAlerta = string.Format("alert('No se pudo editar');");
+                ScriptManager.RegisterClientScriptBlock(Page, typeof(System.Web.UI.Page), "redirect", MensajeAlerta, true);
+            }
+                        
+            CancelarEditingProductos();
         }
 
         private void cargarProductoEdit(ref Productos _producto, GridViewUpdateEventArgs e)
@@ -253,7 +234,6 @@ namespace Vistas
             txtStockInsert.Text = "";
             txtUrlInsert.Text = "";
         }
-
 
         protected void btnAgregar_Click(object sender, EventArgs e)
         {
