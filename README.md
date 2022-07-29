@@ -3,3 +3,7 @@ Trabajo integrador final, desarrollado con asp web forms con conexión a base de
 El front son controles de asp y bootstrap.
 
 El script de la base de datos se encuentra en la carpeta DAO, esta fue creado en microsoft sql server.
+
+http://santiagopedrozo-001-site1.btempurl.com/Home.aspx
+
+Para poder ingresar a las funciones de admin para editar y eliminar productos,  subcategorías, categorías y usuarios ingresar en: http://santiagopedrozo-001-site1.btempurl.com/Admin.aspx
