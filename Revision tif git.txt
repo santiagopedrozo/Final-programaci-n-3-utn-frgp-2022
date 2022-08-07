@@ -1,5 +1,9 @@
 Principales.
 
+-centrar textos con text-align.
+-quitar delineados links con text-decoration: none.
+-aplicar hover al futuro footer y los productos.
+
 -Corregir confirmar compra.
 -Cuando se muestren las tarjetas, si se elige una se cargara el nro de tarjeta y fecha, para confirmarlo se debe ingresar codigo de seguridad.
 -Despues de agregar al carrito se debe mostrar un mensaje aclarandolo.

@@ -1,0 +1,41 @@
+﻿body {
+    font-family: Open Sans;
+}
+
+.ContenedorFooter {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background-color: #81caff;
+    color: #ffffff;
+    border: rgb(213, 241, 248) solid;
+    border-radius: 10px;
+    padding: 0px 60px;
+}
+
+.logos {
+    display: flex;
+    justify-content: baseline;
+}
+
+    .logos i {
+        font-size: 50px;
+        margin: 15px;
+        color: #ffffff;
+    }
+
+    .logos .UtnLogo {
+        margin-top: 16px;
+        margin-right: 23px;
+        border-radius: 3px;
+    }
+
+.texto h6, h4, span {
+    margin: 0px;
+    padding: 0px;
+}
+
+.texto span {
+    font-size: 9px;
+    display: block;
+}

@@ -752,5 +752,10 @@ namespace Vistas
                 }
             }
         }
+
+        protected void imgBtn_Carrito_Click(object sender, ImageClickEventArgs e)
+        {
+            Response.Redirect("Carrito.aspx");
+        }
     }
 }

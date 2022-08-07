@@ -21,41 +21,36 @@
         </style>
 </head>
     
-<body style="background-image: url(https://img.freepik.com/foto-gratis/fondo-papel-tapiz-vintage_53876-25250.jpg?w=2000);background-size:cover;">
+<body>
     <script src="FuncionesConfirmaciones.js"></script>
 
     <form id="form1" runat="server">
-        <div class="auto-style44" style="background-color: #e3f2fd; margin-right:30px;margin-left:30px; border-radius:20px;margin-top:10px;">
-        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                    <asp:ImageButton ID="imgBtn_Logo" runat="server" Width="119px" Height="100px" ImageUrl="~/ImagenesHeader/Logo.png" OnClick="imgBtn_Logo_Click" />
-        </div>
-        <br />
-        <br />
 
-        <asp:DropDownList ID="ddlEleccionDiv" runat="server" AutoPostBack="True"  style="margin-left:620px" OnSelectedIndexChanged="ddlEleccionDiv_SelectedIndexChanged">
-            <asp:ListItem Value=""></asp:ListItem>
-            <asp:ListItem>Productos</asp:ListItem>
-            <asp:ListItem>Categorías</asp:ListItem>
-            <asp:ListItem>SubCategorías</asp:ListItem>
-            <asp:ListItem>Usuarios</asp:ListItem>
-        </asp:DropDownList>
-        <br />
-                 <asp:Label ID="lblErrorProductos" runat="server"></asp:Label>
-        <br />
+        <div>>
+            <asp:Label ID="seleccionarDivision" runat="server" Text="Agregar Productos" style="font-size: xx-large"></asp:Label>
+            <br />
+            <asp:DropDownList ID="ddlEleccionDiv" runat="server" AutoPostBack="True"  OnSelectedIndexChanged="ddlEleccionDiv_SelectedIndexChanged">
+                <asp:ListItem Value=""></asp:ListItem>
+                <asp:ListItem>Productos</asp:ListItem>
+                <asp:ListItem>Categorías</asp:ListItem>
+                <asp:ListItem>SubCategorías</asp:ListItem>
+                <asp:ListItem>Usuarios</asp:ListItem>
+            </asp:DropDownList>
+        </div>
+
+       
          <div id="ProductosDiv" runat="server">
             <div style="margin-left:300px">
                 <asp:Label ID="lblCat0" runat="server" Text="Categoría:"></asp:Label>
-            &nbsp;<asp:DropDownList ID="ddlCategoriasGrd" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCategoriasGrd_SelectedIndexChanged">
+                <asp:DropDownList ID="ddlCategoriasGrd" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCategoriasGrd_SelectedIndexChanged">
                 </asp:DropDownList>
-            &nbsp;
                 <asp:Label ID="lblSub0" runat="server" Text="SubCategoría:"></asp:Label>
-            &nbsp;<asp:DropDownList ID="ddlSubCategoriaGrd" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlSubCategoriaGrd_SelectedIndexChanged">
+                <asp:DropDownList ID="ddlSubCategoriaGrd" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlSubCategoriaGrd_SelectedIndexChanged">
                 </asp:DropDownList>
-            &nbsp;&nbsp;
                 <asp:TextBox ID="txtNombreGrd" runat="server" Width="136px" placeholder="Nombre Producto"></asp:TextBox>
-                 <asp:Button ID="btn_FiltrarGrdProd" runat="server" OnClick="btn_FiltrarGrdProd_Click" Text=" Filtrar" Width="78px" />
-                 <asp:Button ID="btn_SacarFiltrarGrdProd" runat="server" OnClick="btn_SacarFiltrarGrdProd_Click" Text=" Quitar filtros" Width="107px" />
-                 <br />
+                <asp:Button ID="btn_FiltrarGrdProd" runat="server" OnClick="btn_FiltrarGrdProd_Click" Text=" Filtrar" Width="78px" />
+                <asp:Button ID="btn_SacarFiltrarGrdProd" runat="server" OnClick="btn_SacarFiltrarGrdProd_Click" Text=" Quitar filtros" Width="107px" />
+                <br />
              </div>
              <asp:GridView ID="grdProductos" runat="server" AutoGenerateColumns="False" OnRowCancelingEdit="grdProductos_RowCancelingEdit" OnRowDeleting="grdProductos_RowDeleting" OnRowEditing="grdProductos_RowEditing" OnRowUpdating="grdProductos_RowUpdating" AllowPaging="True" PageSize="5" OnPageIndexChanging="grdProductos_PageIndexChanging1" OnRowDataBound="grdProductos_RowDataBound" CellPadding="4" ForeColor="#333333" GridLines="None">
                  <AlternatingRowStyle BackColor="White" />
@@ -102,7 +97,7 @@
                          <EditItemTemplate>
                              <asp:TextBox ID="txtDescEdit" runat="server" Height="99px" style="resize:none" Text='<%# Bind("Descripcion_Producto") %>' TextMode="MultiLine" Width="327px"></asp:TextBox>
                              <br />
-                             <asp:RequiredFieldValidator ID="rfvDescEdit" runat="server" ControlToValidate="txtDescEdit" CssClass="auto-style6" ErrorMessage="Campo descripción vacio"></asp:RequiredFieldValidator>
+                             <asp:RequiredFieldValidator ID="rfvDescEdit" runat="server" ControlToValidate="txtDescEdit" CssClass="auto-style6" ErrorMessage="Campo descripción vacio" Font-Size="Smaller"></asp:RequiredFieldValidator>
                          </EditItemTemplate>
                          <ItemTemplate>
                              <asp:Label ID="lbl_it_Descripcion" runat="server" Text='<%# Bind("Descripcion_Producto") %>'></asp:Label>
@@ -111,8 +106,8 @@
                      <asp:TemplateField HeaderText="unidades en stock">
                          <EditItemTemplate>
                              <asp:TextBox ID="txtStockEdit" runat="server" TextMode="Number" Width="90px" Text='<%# Eval("Stock_Producto") %>'></asp:TextBox>
+                             <asp:RequiredFieldValidator ID="rfvStockEdit" runat="server" ControlToValidate="txtStockEdit" CssClass="auto-style6" ErrorMessage="Campo stock vacio"></asp:RequiredFieldValidator>
                              <br />
-                             <asp:RequiredFieldValidator ID="rfvStockEdit" runat="server" ControlToValidate="txtStockEdit" CssClass="auto-style6" ErrorMessage="Campo stock vacio" ></asp:RequiredFieldValidator>
                          </EditItemTemplate>
                          <ItemTemplate>
                              <asp:Label ID="lbl_it_Stock" runat="server" Text='<%# Bind("Stock_Producto") %>'></asp:Label>
@@ -170,7 +165,7 @@
                         <td class="auto-style40"><strong>
                             <asp:Label class="label label-default" ID="lblProductos0" runat="server" CssClass="auto-style36" Text="Agregar Productos" style="font-size: xx-large"></asp:Label>
                             </strong></td>
-                        <td>&nbsp;</td>
+                        <td></td>
                     </tr>
                     <tr>
                         <td class="auto-style45">
@@ -462,7 +457,6 @@
                  <SortedDescendingHeaderStyle BackColor="#15524A" />
              </asp:GridView>
          </div>
-        
     </form>
 </body>
 </html>

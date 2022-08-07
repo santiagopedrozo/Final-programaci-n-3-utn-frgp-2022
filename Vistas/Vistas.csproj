@@ -66,9 +66,13 @@
   <ItemGroup>
     <Content Include="Admin.aspx" />
     <Content Include="Carrito.aspx" />
+    <Content Include="EstilosCssVistas\Admin.css" />
+    <Content Include="EstilosCssVistas\MasterPageFooter.css" />
+    <Content Include="EstilosCssVistas\MasterPageHeader.css" />
     <Content Include="FinalizaarCompra.aspx" />
     <Content Include="FuncionesConfirmaciones.js" />
     <Content Include="home.aspx" />
+    <Content Include="Homeee.aspx" />
     <Content Include="ImagenesHeader\changuito.png" />
     <Content Include="ImagenesHeader\Logo.png" />
     <Content Include="iniciarSesion.aspx" />
@@ -122,12 +126,26 @@
     <Compile Include="home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Homeee.aspx.cs">
+      <DependentUpon>Homeee.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Homeee.aspx.designer.cs">
+      <DependentUpon>Homeee.aspx</DependentUpon>
+    </Compile>
     <Compile Include="iniciarSesion.aspx.cs">
       <DependentUpon>iniciarSesion.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="iniciarSesion.aspx.designer.cs">
       <DependentUpon>iniciarSesion.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MasterPage.Master.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MasterPage.Master.designer.cs">
+      <DependentUpon>MasterPage.Master</DependentUpon>
     </Compile>
     <Compile Include="MiPerfil.aspx.cs">
       <DependentUpon>MiPerfil.aspx</DependentUpon>
@@ -160,6 +178,7 @@
     </Compile>
   </ItemGroup>
   <ItemGroup>
+    <Content Include="MasterPage.Master" />
     <None Include="packages.config" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
