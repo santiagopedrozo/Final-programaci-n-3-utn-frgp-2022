@@ -33,8 +33,8 @@ namespace Vistas
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (Session[Globales.usuario] == null)
-                Server.Transfer("iniciarSesion.aspx");
+            //if (Session[Globales.usuario] == null)
+            //    Server.Transfer("iniciarSesion.aspx");
 
             if (!IsPostBack)
             {

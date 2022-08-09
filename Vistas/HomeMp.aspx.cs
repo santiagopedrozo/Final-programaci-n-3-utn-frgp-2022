@@ -11,7 +11,7 @@ using Entidades;
 
 namespace Vistas
 {
-    public partial class home : System.Web.UI.Page
+    public partial class HomeMp : System.Web.UI.Page
     {
         private FiltrosProductos _filtros = new FiltrosProductos();
         private LogicaProductos _LogicaProd = new LogicaProductos();
@@ -37,6 +37,7 @@ namespace Vistas
             ddl.DataTextField = "Descripcion_Subcategoria";
             ddl.DataValueField = "Id_Subcategoria";
             ddl.DataBind();
+            ddl.Visible = true;
             ddl.Items.Insert(0, new ListItem("", "-1"));
         }
 
@@ -47,77 +48,56 @@ namespace Vistas
             lvProductos.DataBind();
         }
 
-        private void EsAdmin()
-        {
-            if (Session[Globales.usuario] != null && ((Usuarios)Session[Globales.usuario]).EsAdmin == true)
-            {
-                hlReporteVentas.Visible = true;
-                hlFuncionesAdmin.Visible = true;
-            }
-        }
+        //private void EsAdmin()
+        //{
+        //    if (Session[Globales.usuario] != null && ((Usuarios)Session[Globales.usuario]).EsAdmin == true)
+        //    {
+        //        hlReporteVentas.Visible = true;
+        //        hlFuncionesAdmin.Visible = true;
+        //    }
+        //}
 
-        private void NoEstaIniciado()
-        {
-            if (Session[Globales.usuario] == null)
-            {
-                hlUsuario.Text = "Ingresar";
-                hlUsuario.NavigateUrl = "~/iniciarSesion.aspx";
-                lblNombreUsuario.Text = "";
-            }
-        }
+        //private void NoEstaIniciado()
+        //{
+        //    if (Session[Globales.usuario] == null)
+        //    {
+        //        hlUsuario.Text = "Ingresar";
+        //        hlUsuario.NavigateUrl = "~/iniciarSesion.aspx";
+        //        lblNombreUsuario.Text = "";
+        //    }
+        //}
 
-        private void EstaIniciado()
-        {
-            if (Session[Globales.usuario] != null)
-            {
-                lbCerrarSesion.Visible = true;
-                hlUsuario.Text = "Mi Perfil";
-                hlUsuario.NavigateUrl = "~/MiPerfil.aspx";
-                Usuarios usuarioNombre = (Usuarios)Session[Globales.usuario];
-                lblNombreUsuario.Text = usuarioNombre.Nombre + " " + usuarioNombre.Apellido;
-            }
-        }
+        //private void EstaIniciado()
+        //{
+        //    if (Session[Globales.usuario] != null)
+        //    {
+        //        lbCerrarSesion.Visible = true;
+        //        hlUsuario.Text = "Mi Perfil";
+        //        hlUsuario.NavigateUrl = "~/MiPerfil.aspx";
+        //        Usuarios usuarioNombre = (Usuarios)Session[Globales.usuario];
+        //        lblNombreUsuario.Text = usuarioNombre.Nombre + " " + usuarioNombre.Apellido;
+        //    }
+        //}
 
-        private void sesionesUsuario()
-        {
-            EsAdmin();
-            NoEstaIniciado();
-            EstaIniciado();
-        }
+        //private void sesionesUsuario()
+        //{
+        //    EsAdmin();
+        //    NoEstaIniciado();
+        //    EstaIniciado();
+        //}
 
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
             {
+                
                 Session[Globales.FiltrosLvHome] = new FiltrosProductos();
                 cargadoListView();
-                sesionesUsuario();
+                //sesionesUsuario();
                 cargarDDLCategorias(ref ddlCategorias);
             }
 
         }
-
-        protected void btnBuscar_Click(object sender, EventArgs e)
-        {
-            int min = -1;
-            int max = -1;
-
-            if (txtMinimo.Text != "" && txtMaximo.Text != "")
-            {
-                min = int.Parse(txtMinimo.Text);
-                max = int.Parse(txtMaximo.Text);
-            }
-
-
-            FiltrosProductos _filtrosSession = Session[Globales.FiltrosLvHome] as FiltrosProductos;
-            _filtrosSession.PrecioMaximo = max;
-            _filtrosSession.PrecioMinimo = min;
-            _filtrosSession.Nombre = txtBusqueda.Text;
-            Session[Globales.FiltrosLvHome] = _filtrosSession;
-
-            cargadoListView();
-        }
-
 
         //paginación de productos
         protected void lvProductos_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
@@ -210,11 +190,11 @@ namespace Vistas
 
                     agregarFilaCarrito(_LogicaProd.getProducto(prodAux));
 
-                    lblIniciarSesion.Text = "";
+                    //lblIniciarSesion.Text = "";
                 }
                 else
                 {
-                    lblIniciarSesion.Text = "Para agregar productos al carrito debe iniciar sesion!";
+                    //lblIniciarSesion.Text = "Para agregar productos al carrito debe iniciar sesion!";
                 }
 
             }
@@ -252,14 +232,14 @@ namespace Vistas
             return estado;
         }
 
-
-        protected void imgBtn_Carrito_Click(object sender, ImageClickEventArgs e)
-        {
-            if (Session[Globales.usuario] == null)
-                Response.Redirect("Registrarse.aspx");
-            else
-                Response.Redirect("Carrito.aspx");
-        }
+        //protected void lbCarrito_Click(object sender, ImageClickEventArgs e)
+        //{
+        //    Response.Write("hola");
+        //    if (Session[Globales.usuario] == null)
+        //        Response.Redirect("Registrarse.aspx");
+        //    else
+        //        Response.Redirect("Carrito.aspx");
+        //}
 
         protected void ddlCategorias_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -286,6 +266,36 @@ namespace Vistas
         {
             Session[Globales.usuario] = null;
             Response.Redirect("Home.aspx");
+        }
+
+        protected void lbBuscar_Click(object sender, EventArgs e)
+        {
+            int min = -1;
+            int max = -1;
+
+            if (txtMinimo.Text != "" && txtMaximo.Text != "")
+            {
+                min = int.Parse(txtMinimo.Text);
+                max = int.Parse(txtMaximo.Text);
+            }
+
+
+            FiltrosProductos _filtrosSession = Session[Globales.FiltrosLvHome] as FiltrosProductos;
+            _filtrosSession.PrecioMaximo = max;
+            _filtrosSession.PrecioMinimo = min;
+            _filtrosSession.Nombre = txtBusqueda.Text;
+            Session[Globales.FiltrosLvHome] = _filtrosSession;
+
+            cargadoListView();
+        }
+
+        protected void lbCarrito_Click(object sender, EventArgs e)
+        {
+            Response.Write("hola");
+            if (Session[Globales.usuario] == null)
+                Response.Redirect("Registrarse.aspx");
+            else
+                Response.Redirect("Carrito.aspx");
         }
     }
 }

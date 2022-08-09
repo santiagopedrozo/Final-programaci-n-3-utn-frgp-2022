@@ -1,0 +1,60 @@
+﻿body {
+    font-weight: bold;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin:10px 50px;
+}
+
+
+.ProdDiv {
+    width: 80%;
+    border: solid #e3f2fd;
+    background-color: aliceblue;
+    border-radius: 10px;
+    padding: 10px;
+
+    display: flex;
+    justify-content: center;
+    align-content:center;
+}
+
+
+
+
+.LogoCarrito {
+    font-size: 15px;
+    color: #12a6e6;
+    padding: 3px 6px;
+    border-radius: 3px;
+}
+
+
+
+.main .ProdDiv {
+    /*display: flex;
+    margin-left:350px;
+    justify-content: center;*/
+}
+
+.Nombre {
+    text-align: center;
+}
+
+.ProdDiv li {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+.img {
+    padding: 2px;
+}
+
+.ProdDiv .img:hover {
+    border-radius: 10px;
+    border: solid #e3f2fd;
+}

@@ -1,16 +1,27 @@
 ﻿body {
     font-family: Open Sans;
+    font-weight: bold;
 }
 
 .ContenedorFooter {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: #81caff;
     color: #ffffff;
+    background-color: #81caff;
     border: rgb(213, 241, 248) solid;
     border-radius: 10px;
     padding: 0px 60px;
+}
+
+.Logo .Logo {
+    font-family: Play;
+    font-size: 30px;
+    color: #81caff;
+    background-color: #fdfdfd;
+    border-radius: 20px;
+    padding: 10px;
+    font-weight: bold;
 }
 
 .logos {

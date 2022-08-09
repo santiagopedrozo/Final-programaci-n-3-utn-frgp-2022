@@ -8,8 +8,8 @@
         <title>Mercado gamer</title>
         <asp:ContentPlaceHolder ID="head" runat="server">
         </asp:ContentPlaceHolder>
-        <link rel="stylesheet" href="EstilosCssVistas\MasterPageHeader.css">
-        <link rel="stylesheet" href="EstilosCssVistas\MasterPageFooter.css">
+        <link href="EstilosCssVistas/MasterPageHeader.css" rel="stylesheet" />
+        <link href="EstilosCssVistas/MasterPageFooter.css" rel="stylesheet" />
         <script src="https://kit.fontawesome.com/3c33daaf69.js" crossorigin="anonymous"></script>
     </head>
     <body>
@@ -18,7 +18,8 @@
                 <div class="menu">
                     <div class="header">
                         <div class="logo">
-                            <asp:ImageButton ID="imgLogo" CssClass="Logo" width="80px" runat="server" ImageUrl="~/ImagenesHeader/Logo.png"/>
+                            <span class="Logo">Mercado Gamer</span>
+<%--                            <asp:ImageButton ID="imgLogo" CssClass="Logo" width="80px" runat="server" ImageUrl="~/ImagenesHeader/Logo.png"/>--%>
                         </div>
                         <ul class="menu"> 
                             <li>

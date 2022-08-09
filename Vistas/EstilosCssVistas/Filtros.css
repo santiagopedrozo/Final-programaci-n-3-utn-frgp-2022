@@ -1,0 +1,44 @@
+﻿
+
+
+.preciosBloque {
+    display: inline-block;
+}
+
+
+
+
+
+.Filtros {
+    background-color: #e3f2fd;
+    border: solid #CAE6FB;
+    border-radius: 8px;
+    width: 20%;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: space-around;
+    align-items:center;
+}
+
+   /* .Filtros .btnFiltros {
+        background-color: #81caff;
+        border: solid 3px #5d7b9d;
+        border-radius:5px;
+        color:#fff;
+        font-weight:bold;
+    }*/
+
+    .Filtros .btn btn-primary {
+        background-color: aqua;
+    }
+
+
+
+
+
+
+
+
+
+
+

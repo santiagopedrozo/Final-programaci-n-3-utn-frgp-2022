@@ -4,11 +4,11 @@
 
 
 .header {
-    background-color: #81caff;
     padding: 5px 10px;
     display: flex;
     justify-content: space-around;
     align-items: center;
+    background-color: #81caff;
     border: rgb(213, 241, 248) solid;
     border-radius: 10px;
 }

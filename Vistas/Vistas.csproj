@@ -67,12 +67,16 @@
     <Content Include="Admin.aspx" />
     <Content Include="Carrito.aspx" />
     <Content Include="EstilosCssVistas\Admin.css" />
+    <Content Include="EstilosCssVistas\Buscadorr.css" />
+    <Content Include="EstilosCssVistas\Filtros.css" />
+    <Content Include="EstilosCssVistas\Main.css" />
     <Content Include="EstilosCssVistas\MasterPageFooter.css" />
     <Content Include="EstilosCssVistas\MasterPageHeader.css" />
+    <Content Include="EstilosCssVistas\ProductosLv.css" />
     <Content Include="FinalizaarCompra.aspx" />
     <Content Include="FuncionesConfirmaciones.js" />
     <Content Include="home.aspx" />
-    <Content Include="Homeee.aspx" />
+    <Content Include="HomeMp.aspx" />
     <Content Include="ImagenesHeader\changuito.png" />
     <Content Include="ImagenesHeader\Logo.png" />
     <Content Include="iniciarSesion.aspx" />
@@ -126,12 +130,12 @@
     <Compile Include="home.aspx.designer.cs">
       <DependentUpon>home.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Homeee.aspx.cs">
-      <DependentUpon>Homeee.aspx</DependentUpon>
+    <Compile Include="HomeMp.aspx.cs">
+      <DependentUpon>HomeMp.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Homeee.aspx.designer.cs">
-      <DependentUpon>Homeee.aspx</DependentUpon>
+    <Compile Include="HomeMp.aspx.designer.cs">
+      <DependentUpon>HomeMp.aspx</DependentUpon>
     </Compile>
     <Compile Include="iniciarSesion.aspx.cs">
       <DependentUpon>iniciarSesion.aspx</DependentUpon>
