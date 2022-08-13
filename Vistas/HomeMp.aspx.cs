@@ -48,44 +48,6 @@ namespace Vistas
             lvProductos.DataBind();
         }
 
-        //private void EsAdmin()
-        //{
-        //    if (Session[Globales.usuario] != null && ((Usuarios)Session[Globales.usuario]).EsAdmin == true)
-        //    {
-        //        hlReporteVentas.Visible = true;
-        //        hlFuncionesAdmin.Visible = true;
-        //    }
-        //}
-
-        //private void NoEstaIniciado()
-        //{
-        //    if (Session[Globales.usuario] == null)
-        //    {
-        //        hlUsuario.Text = "Ingresar";
-        //        hlUsuario.NavigateUrl = "~/iniciarSesion.aspx";
-        //        lblNombreUsuario.Text = "";
-        //    }
-        //}
-
-        //private void EstaIniciado()
-        //{
-        //    if (Session[Globales.usuario] != null)
-        //    {
-        //        lbCerrarSesion.Visible = true;
-        //        hlUsuario.Text = "Mi Perfil";
-        //        hlUsuario.NavigateUrl = "~/MiPerfil.aspx";
-        //        Usuarios usuarioNombre = (Usuarios)Session[Globales.usuario];
-        //        lblNombreUsuario.Text = usuarioNombre.Nombre + " " + usuarioNombre.Apellido;
-        //    }
-        //}
-
-        //private void sesionesUsuario()
-        //{
-        //    EsAdmin();
-        //    NoEstaIniciado();
-        //    EstaIniciado();
-        //}
-
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -204,6 +166,8 @@ namespace Vistas
             txtBusqueda.Text = "";
             txtMaximo.Text = "";
             txtMinimo.Text = "";
+            SubCatDiv.Visible = false;
+            cargarDDLCategorias(ref ddlCategorias);
         }
 
 
@@ -232,15 +196,6 @@ namespace Vistas
             return estado;
         }
 
-        //protected void lbCarrito_Click(object sender, ImageClickEventArgs e)
-        //{
-        //    Response.Write("hola");
-        //    if (Session[Globales.usuario] == null)
-        //        Response.Redirect("Registrarse.aspx");
-        //    else
-        //        Response.Redirect("Carrito.aspx");
-        //}
-
         protected void ddlCategorias_SelectedIndexChanged(object sender, EventArgs e)
         {
             DropDownList ddl = (DropDownList)sender;
@@ -249,6 +204,7 @@ namespace Vistas
             FiltrosProductos _filtrosSession = Session[Globales.FiltrosLvHome] as FiltrosProductos;
             _filtrosSession.IdCat = int.Parse(ddl.SelectedValue);
             Session[Globales.FiltrosLvHome] = _filtrosSession;
+            SubCatDiv.Visible = true;
             cargadoListView();
         }
 

@@ -36,23 +36,15 @@
                     </div>
                 </div>
 
-                <div class="ClasificacionPrecios">
-                    <h5>Ordenar Precio</h5>
-                    <asp:DropDownList ID="PrecioDDl" runat="server">
-                            <asp:ListItem Value="-1"></asp:ListItem>
-                            <asp:ListItem Value="1">Mayor</asp:ListItem>
-                            <asp:ListItem Value="-1">Menor</asp:ListItem>
-                    </asp:DropDownList>
-                </div>
                 
                 <div class="categorias">
                     <h5>Categorías</h5>
-                    <asp:DropDownList ID="ddlCategorias" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCategorias_SelectedIndexChanged"> </asp:DropDownList>
+                    <asp:DropDownList ID="ddlCategorias" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlCategorias_SelectedIndexChanged"  Width="180px"> </asp:DropDownList>
                 </div>
 
-                <div class="Subcategorias" runat="server" visible="false"> 
+                <div ID="SubCatDiv" class="Subcategorias" runat="server" visible="false"> 
                     <h5>SubCategorías</h5>
-                    <asp:DropDownList ID="ddlSubCat" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlSubCat_SelectedIndexChanged"> </asp:DropDownList> <br />
+                    <asp:DropDownList ID="ddlSubCat" runat="server" AutoPostBack="True" OnSelectedIndexChanged="ddlSubCat_SelectedIndexChanged" Width="180px" > </asp:DropDownList> <br />
                 </div>
                         
                         
@@ -80,7 +72,8 @@
                     </GroupTemplate>
 
                     <InsertItemTemplate>
-                        <td runat="server" style="">Nombre_Producto:
+                        <td runat="server">
+                            Nombre_Producto:
                             <asp:TextBox ID="Nombre_ProductoTextBox0" runat="server" Text='<%# Bind("Nombre_Producto") %>' />
                             <br />Precio_Producto:
                             <asp:TextBox ID="Precio_ProductoTextBox0" runat="server" Text='<%# Bind("Precio_Producto") %>' />
@@ -94,7 +87,7 @@
                     </InsertItemTemplate>
 
                     <ItemTemplate>
-                        <td runat="server" cssclass="xd">
+                        <td runat="server">
                             <ul>
                                 <li><asp:Label ID="Nombre_ProductoLabel" cssclass="Nombre" runat="server" Text='<%# Eval("Nombre_Producto") %>' ></asp:Label></li>
                                 <li>

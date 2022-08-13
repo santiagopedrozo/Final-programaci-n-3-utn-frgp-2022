@@ -8,9 +8,10 @@
         <title>Mercado gamer</title>
         <asp:ContentPlaceHolder ID="head" runat="server">
         </asp:ContentPlaceHolder>
-        <link href="EstilosCssVistas/MasterPageHeader.css" rel="stylesheet" />
-        <link href="EstilosCssVistas/MasterPageFooter.css" rel="stylesheet" />
+        <link href="EstilosCssVistas/Footer.css" rel="stylesheet" />
+        <link href="EstilosCssVistas/Header.css" rel="stylesheet" />
         <script src="https://kit.fontawesome.com/3c33daaf69.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Play" />
     </head>
     <body>
         <form id="form1" runat="server">
@@ -18,20 +19,21 @@
                 <div class="menu">
                     <div class="header">
                         <div class="logo">
-                            <span class="Logo">Mercado Gamer</span>
+                            <span>Mercado Gamer</span>
 <%--                            <asp:ImageButton ID="imgLogo" CssClass="Logo" width="80px" runat="server" ImageUrl="~/ImagenesHeader/Logo.png"/>--%>
                         </div>
-                        <ul class="menu"> 
+                        <ul class="MenuUl"> 
                             <li>
-                                <asp:Label ID="lblNombreUsuario" CssClass="TextMenu" runat="server" Text="Usuario"></asp:Label>
+                                <asp:HyperLink ID="hlNombreUsuario" CssClass="TextMenu" runat="server" ></asp:HyperLink>
                                 <asp:HyperLink ID="hlFuncionesAdmin" CssClass="TextMenu" runat="server" NavigateUrl="~/Admin.aspx" Visible="False">Funciones Admin</asp:HyperLink>
                                 <asp:HyperLink ID="hlReporteVentas" CssClass="TextMenu" runat="server" EnableViewState="False" NavigateUrl="~/Reportess.aspx" Visible="False">Reporte ventas</asp:HyperLink>
                             </li>
                             <li>
-                                <asp:HyperLink ID="hlHome" CssClass="TextMenu" runat="server">Home</asp:HyperLink>
+                                <asp:HyperLink ID="hlHome" CssClass="TextMenu" runat="server" NavigateUrl="~/HomeMp.aspx">Home</asp:HyperLink>
                             </li>
                             <li>
-                                <asp:HyperLink ID="hlUsuario" CssClass="TextMenu" runat="server">[hlUsuario]</asp:HyperLink>
+                                <asp:HyperLink ID="hlUsuario" CssClass="TextMenu" runat="server"></asp:HyperLink>
+                                <asp:LinkButton ID="lbCerrarSesion" CssClass="TextMenu" runat="server" Visible="false" OnClick="lbCerrarSesion_Click" OnClientClick="return confirm('¿Esta seguro que quiere cerrar sesión?')">Cerrar sesión</asp:LinkButton>
                             </li>
                         </ul>
                     </div>
@@ -41,19 +43,18 @@
 
                 <div class="ContenedorFooter">
                     <div class="texto">
-                        <h4>Compra gamer</h4>
+                        <h5>Compra gamer</h5>
                         <h6>Proyecto UTN FRGP</h6>
-                        <span>Programación III</span>
-                        <span>Laboratorio de computación III</span>
                     </div>
 
                     <div class="logos">
-                        <asp:ImageButton ID="UtnLogo" CssClass="UtnLogo" runat="server" width="45px" height="45px" ImageUrl="~/ImagenesHeader/utn frgp.png" />
-                        <i class="fa-brands fa-linkedin"></i>
-                        <i class="fa-brands fa-github"></i>
+                        <asp:ImageButton ID="UtnLogo" CssClass="img" runat="server" width="50px" height="50px" ImageUrl="~/ImagenesHeader/utn frgp.png" OnClick="UtnLogo_Click" />
+                        <asp:LinkButton ID="lbLinkedin" CssClass="Iconos" runat="server" Text='<i class="fa-brands fa-linkedin"></i>' OnClick="lbLinkedin_Click"></asp:LinkButton>
+                        <asp:LinkButton ID="lbGit" CssClass="Iconos" runat="server" Text='<i class="fa-brands fa-github"></i>' OnClick="lbGit_Click"></asp:LinkButton>
                     </div>
                 </div>
             </div>
+
         </form>
     </body>
 </html>

@@ -69,9 +69,9 @@
     <Content Include="EstilosCssVistas\Admin.css" />
     <Content Include="EstilosCssVistas\Buscadorr.css" />
     <Content Include="EstilosCssVistas\Filtros.css" />
+    <Content Include="EstilosCssVistas\Footer.css" />
+    <Content Include="EstilosCssVistas\Header.css" />
     <Content Include="EstilosCssVistas\Main.css" />
-    <Content Include="EstilosCssVistas\MasterPageFooter.css" />
-    <Content Include="EstilosCssVistas\MasterPageHeader.css" />
     <Content Include="EstilosCssVistas\ProductosLv.css" />
     <Content Include="FinalizaarCompra.aspx" />
     <Content Include="FuncionesConfirmaciones.js" />
