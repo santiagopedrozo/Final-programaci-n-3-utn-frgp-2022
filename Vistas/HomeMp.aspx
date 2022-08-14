@@ -89,7 +89,7 @@
                     <ItemTemplate>
                         <td runat="server">
                             <ul>
-                                <li><asp:Label ID="Nombre_ProductoLabel" cssclass="Nombre" runat="server" Text='<%# Eval("Nombre_Producto") %>' ></asp:Label></li>
+                                <li><asp:Label ID="Nombre_ProductoLabel" cssclass="Nombre" runat="server" Text='<%# Eval("Nombre_Producto") %>' width="70%" Font-Size="13px"></asp:Label></li>
                                 <li>
                                     <span>$</span>
                                     <asp:Label ID="lblPrecio" cssclass="text" runat="server" Text='<%# Eval("Precio_Producto") %>'  />

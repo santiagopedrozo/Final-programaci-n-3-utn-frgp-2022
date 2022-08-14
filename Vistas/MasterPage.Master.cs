@@ -18,6 +18,11 @@ namespace Vistas
                 hlReporteVentas.Visible = true;
                 hlFuncionesAdmin.Visible = true;
             }
+            else
+            {
+                hlReporteVentas.Visible = false;
+                hlFuncionesAdmin.Visible = false;
+            }
         }
 
         private void NoEstaIniciado()

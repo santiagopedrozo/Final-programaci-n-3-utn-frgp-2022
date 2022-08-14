@@ -66,20 +66,23 @@
   <ItemGroup>
     <Content Include="Admin.aspx" />
     <Content Include="Carrito.aspx" />
+    <Content Include="CarritoMP.aspx" />
     <Content Include="EstilosCssVistas\Admin.css" />
     <Content Include="EstilosCssVistas\Buscadorr.css" />
+    <Content Include="EstilosCssVistas\Carritoo.css" />
     <Content Include="EstilosCssVistas\Filtros.css" />
     <Content Include="EstilosCssVistas\Footer.css" />
     <Content Include="EstilosCssVistas\Header.css" />
+    <Content Include="EstilosCssVistas\IniciarSesion.css" />
     <Content Include="EstilosCssVistas\Main.css" />
     <Content Include="EstilosCssVistas\ProductosLv.css" />
+    <Content Include="EstilosCssVistas\Registrarse.css" />
     <Content Include="FinalizaarCompra.aspx" />
     <Content Include="FuncionesConfirmaciones.js" />
-    <Content Include="home.aspx" />
     <Content Include="HomeMp.aspx" />
     <Content Include="ImagenesHeader\changuito.png" />
     <Content Include="ImagenesHeader\Logo.png" />
-    <Content Include="iniciarSesion.aspx" />
+    <Content Include="IniciarSesionMP.aspx" />
     <Content Include="MiPerfil.aspx" />
     <Content Include="DetalleProducto.aspx" />
     <Content Include="ProductosImagenes\Disco Rígido WD 1TB BLUE.jpg" />
@@ -97,7 +100,7 @@
     <Content Include="ProductosImagenes\Placa Sonido Pci Express 5.1 Sound Audio.jpg" />
     <Content Include="ProductosImagenes\Procesador AMD Ryzen 7 5800X.jpg" />
     <Content Include="ProductosImagenes\Procesador Intel Core i3 10100F.jpg" />
-    <Content Include="Registrarse.aspx" />
+    <Content Include="RegistrarseMP.aspx" />
     <Content Include="Reportess.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
@@ -116,19 +119,19 @@
     <Compile Include="Carrito.aspx.designer.cs">
       <DependentUpon>Carrito.aspx</DependentUpon>
     </Compile>
+    <Compile Include="CarritoMP.aspx.cs">
+      <DependentUpon>CarritoMP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CarritoMP.aspx.designer.cs">
+      <DependentUpon>CarritoMP.aspx</DependentUpon>
+    </Compile>
     <Compile Include="FinalizaarCompra.aspx.cs">
       <DependentUpon>FinalizaarCompra.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="FinalizaarCompra.aspx.designer.cs">
       <DependentUpon>FinalizaarCompra.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="home.aspx.cs">
-      <DependentUpon>home.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="home.aspx.designer.cs">
-      <DependentUpon>home.aspx</DependentUpon>
     </Compile>
     <Compile Include="HomeMp.aspx.cs">
       <DependentUpon>HomeMp.aspx</DependentUpon>
@@ -137,12 +140,12 @@
     <Compile Include="HomeMp.aspx.designer.cs">
       <DependentUpon>HomeMp.aspx</DependentUpon>
     </Compile>
-    <Compile Include="iniciarSesion.aspx.cs">
-      <DependentUpon>iniciarSesion.aspx</DependentUpon>
+    <Compile Include="IniciarSesionMP.aspx.cs">
+      <DependentUpon>IniciarSesionMP.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="iniciarSesion.aspx.designer.cs">
-      <DependentUpon>iniciarSesion.aspx</DependentUpon>
+    <Compile Include="IniciarSesionMP.aspx.designer.cs">
+      <DependentUpon>IniciarSesionMP.aspx</DependentUpon>
     </Compile>
     <Compile Include="MasterPage.Master.cs">
       <DependentUpon>MasterPage.Master</DependentUpon>
@@ -166,12 +169,12 @@
       <DependentUpon>DetalleProducto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Registrarse.aspx.cs">
-      <DependentUpon>Registrarse.aspx</DependentUpon>
+    <Compile Include="RegistrarseMP.aspx.cs">
+      <DependentUpon>RegistrarseMP.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
-    <Compile Include="Registrarse.aspx.designer.cs">
-      <DependentUpon>Registrarse.aspx</DependentUpon>
+    <Compile Include="RegistrarseMP.aspx.designer.cs">
+      <DependentUpon>RegistrarseMP.aspx</DependentUpon>
     </Compile>
     <Compile Include="Reportess.aspx.cs">
       <DependentUpon>Reportess.aspx</DependentUpon>

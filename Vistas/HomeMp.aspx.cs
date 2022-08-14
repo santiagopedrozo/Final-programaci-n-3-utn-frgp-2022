@@ -52,10 +52,11 @@ namespace Vistas
         {
             if (!IsPostBack)
             {
-                
+                Usuarios usr = new Usuarios();
+                usr.Nombre = "La cobra";
+                Session[Globales.usuario] = usr; 
                 Session[Globales.FiltrosLvHome] = new FiltrosProductos();
                 cargadoListView();
-                //sesionesUsuario();
                 cargarDDLCategorias(ref ddlCategorias);
             }
 
@@ -106,6 +107,7 @@ namespace Vistas
                 dt.Columns.Add(new DataColumn("Precio"));
                 dt.Columns.Add(new DataColumn("Cantidad"));
                 dt.Columns.Add(new DataColumn("Total"));
+                dt.Columns.Add(new DataColumn("ImgProd"));
             }
             else
                 dt = (DataTable)Session[Globales.carrito];
@@ -127,6 +129,7 @@ namespace Vistas
                 }
             }
 
+            dr["ImgProd"] = prod.UrlImage;
             dr["IdProd"] = prod.IdProducto;
             dr["Nombre"] = prod.Nombre;
             dr["Precio"] = prod.Precio;
@@ -221,7 +224,7 @@ namespace Vistas
         protected void lbCerrarSesion_Click(object sender, EventArgs e)
         {
             Session[Globales.usuario] = null;
-            Response.Redirect("Home.aspx");
+            Response.Redirect("HomeMp.aspx");
         }
 
         protected void lbBuscar_Click(object sender, EventArgs e)
@@ -247,11 +250,11 @@ namespace Vistas
 
         protected void lbCarrito_Click(object sender, EventArgs e)
         {
-            Response.Write("hola");
             if (Session[Globales.usuario] == null)
-                Response.Redirect("Registrarse.aspx");
+                Response.Redirect("IniciarSesionMP.aspx");
             else
-                Response.Redirect("Carrito.aspx");
+                Response.Redirect("CarritoMP.aspx");
         }
+
     }
 }
