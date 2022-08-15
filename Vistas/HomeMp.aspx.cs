@@ -52,9 +52,9 @@ namespace Vistas
         {
             if (!IsPostBack)
             {
-                Usuarios usr = new Usuarios();
-                usr.Nombre = "La cobra";
-                Session[Globales.usuario] = usr; 
+                //Usuarios usr = new Usuarios();
+                //usr.Nombre = "La cobra";
+                //Session[Globales.usuario] = usr; 
                 Session[Globales.FiltrosLvHome] = new FiltrosProductos();
                 cargadoListView();
                 cargarDDLCategorias(ref ddlCategorias);
@@ -74,7 +74,8 @@ namespace Vistas
             if (e.CommandName == "seleccionProductoDetalle")
             {
                 Session[Globales.prodDetalle] = Convert.ToInt32(e.CommandArgument.ToString());
-                Response.Redirect("DetalleProducto.aspx");
+                Response.Redirect("DetalleProductoMP.aspx");
+                Session["Puntaje"] = -1;
             }
         }
 
@@ -159,6 +160,7 @@ namespace Vistas
                 }
                 else
                 {
+
                     //lblIniciarSesion.Text = "Para agregar productos al carrito debe iniciar sesion!";
                 }
 

@@ -65,11 +65,14 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="Admin.aspx" />
-    <Content Include="Carrito.aspx" />
     <Content Include="CarritoMP.aspx" />
+    <Content Include="DetalleProductoMP.aspx" />
     <Content Include="EstilosCssVistas\Admin.css" />
     <Content Include="EstilosCssVistas\Buscadorr.css" />
     <Content Include="EstilosCssVistas\Carritoo.css" />
+    <Content Include="EstilosCssVistas\DetalleProducto.css" />
+    <Content Include="EstilosCssVistas\DetalleProductoss.css" />
+    <Content Include="EstilosCssVistas\DetalleProductosss.css" />
     <Content Include="EstilosCssVistas\Filtros.css" />
     <Content Include="EstilosCssVistas\Footer.css" />
     <Content Include="EstilosCssVistas\Header.css" />
@@ -112,19 +115,19 @@
     <Compile Include="Admin.aspx.designer.cs">
       <DependentUpon>Admin.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Carrito.aspx.cs">
-      <DependentUpon>Carrito.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="Carrito.aspx.designer.cs">
-      <DependentUpon>Carrito.aspx</DependentUpon>
-    </Compile>
     <Compile Include="CarritoMP.aspx.cs">
       <DependentUpon>CarritoMP.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="CarritoMP.aspx.designer.cs">
       <DependentUpon>CarritoMP.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="DetalleProductoMP.aspx.cs">
+      <DependentUpon>DetalleProductoMP.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="DetalleProductoMP.aspx.designer.cs">
+      <DependentUpon>DetalleProductoMP.aspx</DependentUpon>
     </Compile>
     <Compile Include="FinalizaarCompra.aspx.cs">
       <DependentUpon>FinalizaarCompra.aspx</DependentUpon>
