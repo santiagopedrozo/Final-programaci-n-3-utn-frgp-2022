@@ -68,7 +68,6 @@
     <Content Include="CarritoMP.aspx" />
     <Content Include="DetalleProductoMP.aspx" />
     <Content Include="EstilosCssVistas\Admin.css" />
-    <Content Include="EstilosCssVistas\Buscadorr.css" />
     <Content Include="EstilosCssVistas\Carritoo.css" />
     <Content Include="EstilosCssVistas\DetalleProducto.css" />
     <Content Include="EstilosCssVistas\DetalleProductoss.css" />
@@ -76,8 +75,8 @@
     <Content Include="EstilosCssVistas\Filtros.css" />
     <Content Include="EstilosCssVistas\Footer.css" />
     <Content Include="EstilosCssVistas\Header.css" />
+    <Content Include="EstilosCssVistas\homeMain.css" />
     <Content Include="EstilosCssVistas\IniciarSesion.css" />
-    <Content Include="EstilosCssVistas\Main.css" />
     <Content Include="EstilosCssVistas\ProductosLv.css" />
     <Content Include="EstilosCssVistas\Registrarse.css" />
     <Content Include="FinalizaarCompra.aspx" />

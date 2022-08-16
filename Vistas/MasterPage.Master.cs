@@ -47,7 +47,7 @@ namespace Vistas
 
                 Usuarios usuarioNombre = (Usuarios)Session[Globales.usuario];
                 hlNombreUsuario.Text = usuarioNombre.Nombre + " " + usuarioNombre.Apellido;
-                hlNombreUsuario.NavigateUrl = "MiPerfilMP.aspx";
+                //hlNombreUsuario.NavigateUrl = "MiPerfilMP.aspx";
             }
         }
 
@@ -82,6 +82,14 @@ namespace Vistas
         protected void UtnLogo_Click(object sender, ImageClickEventArgs e)
         {
             Response.Redirect("https://www.frgp.utn.edu.ar/");
+        }
+
+        protected void CarritoLb_Click(object sender, EventArgs e)
+        {
+            if (Session[Globales.usuario] == null)
+                Response.Redirect("IniciarSesionMP.aspx");
+            else
+                Response.Redirect("CarritoMP.aspx");
         }
     }
 }

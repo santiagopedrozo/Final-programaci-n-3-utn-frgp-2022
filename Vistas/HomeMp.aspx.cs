@@ -52,21 +52,11 @@ namespace Vistas
         {
             if (!IsPostBack)
             {
-                //Usuarios usr = new Usuarios();
-                //usr.Nombre = "La cobra";
-                //Session[Globales.usuario] = usr; 
                 Session[Globales.FiltrosLvHome] = new FiltrosProductos();
                 cargadoListView();
                 cargarDDLCategorias(ref ddlCategorias);
             }
 
-        }
-
-        //paginación de productos
-        protected void lvProductos_PagePropertiesChanging(object sender, PagePropertiesChangingEventArgs e)
-        {
-            (lvProductos.FindControl("DataPager1") as DataPager).SetPageProperties(e.StartRowIndex, e.MaximumRows, false);
-            cargadoListView();
         }
 
         protected void imgProducto_Command(object sender, CommandEventArgs e)
@@ -144,7 +134,6 @@ namespace Vistas
             Session[Globales.carrito] = dt;
         }
 
-
         protected void btnAgregarAlCarrito_Command(object sender, CommandEventArgs e)
         {
             if (e.CommandName == "ProductoCarrito")
@@ -160,12 +149,15 @@ namespace Vistas
                 }
                 else
                 {
+                    MsgErrorRsniaDiv.Visible = true;
+                    lblError.Text = "Para utilizar el carro debe iniciar sesión";
 
-                    //lblIniciarSesion.Text = "Para agregar productos al carrito debe iniciar sesion!";
+
                 }
 
             }
         }
+
         private void VaciadoControles() //vacia todos los filtros que contienen controles
         {
             txtBusqueda.Text = "";
@@ -249,14 +241,5 @@ namespace Vistas
 
             cargadoListView();
         }
-
-        protected void lbCarrito_Click(object sender, EventArgs e)
-        {
-            if (Session[Globales.usuario] == null)
-                Response.Redirect("IniciarSesionMP.aspx");
-            else
-                Response.Redirect("CarritoMP.aspx");
-        }
-
     }
 }

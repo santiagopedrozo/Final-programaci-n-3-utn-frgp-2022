@@ -20,7 +20,6 @@
                     <div class="header">
                         <div class="logo">
                             <span>Mercado Gamer</span>
-<%--                            <asp:ImageButton ID="imgLogo" CssClass="Logo" width="80px" runat="server" ImageUrl="~/ImagenesHeader/Logo.png"/>--%>
                         </div>
                         <ul class="MenuUl"> 
                             <li>
@@ -34,6 +33,10 @@
                             <li>
                                 <asp:HyperLink ID="hlUsuario" CssClass="TextMenu" runat="server"></asp:HyperLink>
                                 <asp:LinkButton ID="lbCerrarSesion" CssClass="TextMenu" runat="server" Visible="false" OnClick="lbCerrarSesion_Click" OnClientClick="return confirm('¿Esta seguro que quiere cerrar sesión?')">Cerrar sesión</asp:LinkButton>
+                            </li>
+                            <li>
+                                <asp:LinkButton ID="CarritoLb" runat="server" style="font-size:20px; color:#fff;" Text='<i class="fa-solid fa-cart-shopping"></i>' OnClick="CarritoLb_Click"></asp:LinkButton>
+                                
                             </li>
                         </ul>
                     </div>

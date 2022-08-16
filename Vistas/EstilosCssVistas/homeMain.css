@@ -1,0 +1,75 @@
+﻿body {
+    font-weight: bold;
+}
+
+.main {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 10px 40px;
+
+    background-color:gray;
+}
+
+
+.main .ProdDiv {
+    margin-left: 10px;
+}
+
+.ProdDiv li {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+}
+
+    .ItemTemplate ul {
+        margin: 5px;
+        padding: 5px;
+        border: solid 1.5px #676767;
+        border-radius: 5px;
+    }
+
+    .Nombre {
+        margin-top:5px;
+        word-wrap: break-word;
+        width: 200px;
+        height:57px;
+
+    }
+
+    .NombreText {
+        text-align: center;
+    }
+
+.Boton {
+    font-size: 12px;
+    color: #fff;
+    padding: 3px 20px;
+    background-color: #a0d7ff;
+    font-weight: bold;
+    border: solid 1px #d5f1f8;
+    border-radius: 5px;
+}
+
+    .Boton:hover {
+        background-color: #c5effa;
+    }
+
+/*------FILTROS------*/
+.preciosBloque {
+    display: inline-block;
+}
+
+.Filtros {
+    background-color: #e3f2fd;
+    border: solid #CAE6FB;
+    border-radius: 8px;
+    width: 600px;
+    height: 900px;
+    display: flex;
+    flex-flow: column nowrap;
+    justify-content: start;
+    align-items: center;
+}
+
+/* -----Buscador----*/
