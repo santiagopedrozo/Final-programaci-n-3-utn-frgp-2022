@@ -86,10 +86,7 @@ namespace Vistas
 
         protected void CarritoLb_Click(object sender, EventArgs e)
         {
-            if (Session[Globales.usuario] == null)
-                Response.Redirect("IniciarSesionMP.aspx");
-            else
-                Response.Redirect("CarritoMP.aspx");
+            Response.Redirect("CarritoMP.aspx");
         }
     }
 }

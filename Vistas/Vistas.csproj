@@ -69,15 +69,11 @@
     <Content Include="DetalleProductoMP.aspx" />
     <Content Include="EstilosCssVistas\Admin.css" />
     <Content Include="EstilosCssVistas\Carritoo.css" />
-    <Content Include="EstilosCssVistas\DetalleProducto.css" />
-    <Content Include="EstilosCssVistas\DetalleProductoss.css" />
     <Content Include="EstilosCssVistas\DetalleProductosss.css" />
-    <Content Include="EstilosCssVistas\Filtros.css" />
     <Content Include="EstilosCssVistas\Footer.css" />
     <Content Include="EstilosCssVistas\Header.css" />
-    <Content Include="EstilosCssVistas\homeMain.css" />
+    <Content Include="EstilosCssVistas\HomeMp.css" />
     <Content Include="EstilosCssVistas\IniciarSesion.css" />
-    <Content Include="EstilosCssVistas\ProductosLv.css" />
     <Content Include="EstilosCssVistas\Registrarse.css" />
     <Content Include="FinalizaarCompra.aspx" />
     <Content Include="FuncionesConfirmaciones.js" />
@@ -86,7 +82,6 @@
     <Content Include="ImagenesHeader\Logo.png" />
     <Content Include="IniciarSesionMP.aspx" />
     <Content Include="MiPerfil.aspx" />
-    <Content Include="DetalleProducto.aspx" />
     <Content Include="ProductosImagenes\Disco Rígido WD 1TB BLUE.jpg" />
     <Content Include="ProductosImagenes\Disco Sólido SSD WD 240GB GREEN.jpg" />
     <Content Include="ProductosImagenes\Fuente Gigabyte 450W 80 Plus Bronze.jpg" />
@@ -162,13 +157,6 @@
     </Compile>
     <Compile Include="MiPerfil.aspx.designer.cs">
       <DependentUpon>MiPerfil.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="DetalleProducto.aspx.cs">
-      <DependentUpon>DetalleProducto.aspx</DependentUpon>
-      <SubType>ASPXCodeBehind</SubType>
-    </Compile>
-    <Compile Include="DetalleProducto.aspx.designer.cs">
-      <DependentUpon>DetalleProducto.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="RegistrarseMP.aspx.cs">

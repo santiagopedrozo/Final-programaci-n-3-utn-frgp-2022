@@ -138,23 +138,9 @@ namespace Vistas
         {
             if (e.CommandName == "ProductoCarrito")
             {
-                if (Session[Globales.usuario] != null)
-                {
-                    Productos prodAux = new Productos();
-                    prodAux.IdProducto = (int.Parse(e.CommandArgument.ToString()));
-
-                    agregarFilaCarrito(_LogicaProd.getProducto(prodAux));
-
-                    //lblIniciarSesion.Text = "";
-                }
-                else
-                {
-                    MsgErrorRsniaDiv.Visible = true;
-                    lblError.Text = "Para utilizar el carro debe iniciar sesión";
-
-
-                }
-
+                Productos prodAux = new Productos();
+                prodAux.IdProducto = (int.Parse(e.CommandArgument.ToString()));
+                agregarFilaCarrito(_LogicaProd.getProducto(prodAux));
             }
         }
 
@@ -163,7 +149,6 @@ namespace Vistas
             txtBusqueda.Text = "";
             txtMaximo.Text = "";
             txtMinimo.Text = "";
-            SubCatDiv.Visible = false;
             cargarDDLCategorias(ref ddlCategorias);
         }
 
@@ -222,6 +207,27 @@ namespace Vistas
         }
 
         protected void lbBuscar_Click(object sender, EventArgs e)
+        {
+            int min = -1;
+            int max = -1;
+
+            if (txtMinimo.Text != "" && txtMaximo.Text != "")
+            {
+                min = int.Parse(txtMinimo.Text);
+                max = int.Parse(txtMaximo.Text);
+            }
+
+
+            FiltrosProductos _filtrosSession = Session[Globales.FiltrosLvHome] as FiltrosProductos;
+            _filtrosSession.PrecioMaximo = max;
+            _filtrosSession.PrecioMinimo = min;
+            _filtrosSession.Nombre = txtBusqueda.Text;
+            Session[Globales.FiltrosLvHome] = _filtrosSession;
+
+            cargadoListView();
+        }
+
+        protected void btnBuscar_Click(object sender, EventArgs e)
         {
             int min = -1;
             int max = -1;
