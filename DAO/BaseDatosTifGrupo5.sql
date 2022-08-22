@@ -15,6 +15,7 @@ CREATE TABLE Usuarios
 	Email_Usuario VARCHAR(50) NOT NULL,
 	Contraseña_Usuario VARCHAR(20) NOT NULL,
 	EsAdmin_Usuario BIT DEFAULT 0,
+	FechaRegistrado DATETIME NULL, 
 	Estado_Usuario BIT DEFAULT 1
 
 	CONSTRAINT PK_Usuarios PRIMARY KEY (DNI_Usuario),
@@ -2872,10 +2873,6 @@ from Reseñas
 where Estado_Reseña = 1
 GO
 
-
-
-
-
 CREATE TRIGGER TR_EliminarCategoria
 ON [dbo].[Categorias] INSTEAD OF DELETE AS
 	BEGIN
@@ -3109,19 +3106,41 @@ CREATE Procedure SP_AgregarReseña
 @CONTENIDO Text,
 @CALIFICACION INT
 AS
-IF EXISTS(SELECT Id_Producto from Productos where Id_Producto = @IDPRODUCTOS and Estado_Producto = 1) AND EXISTS(SELECT DNI_Usuario FROM Usuarios WHERE DNI_Usuario = @DNIUSUARIO AND Estado_Usuario = 1)
-BEGIN	
-	IF not exists(Select * from Reseñas where Id_Producto_Reseña = @IDPRODUCTOS and DNI_Usuario_Reseña = @DNIUSUARIO)
-		BEGIN
+
+IF exists(Select * from Reseñas where Id_Producto_Reseña = @IDPRODUCTOS and DNI_Usuario_Reseña = @DNIUSUARIO and Estado_Reseña = 0)
+	BEGIN
+		UPDATE Reseñas
+		SET Contenido_Reseña = @CONTENIDO, Calificacion_Reseña = @CALIFICACION, Fecha_Reseña = GETDATE(), Estado_Reseña = 1
+		where Id_Producto_Reseña = @IDPRODUCTOS and DNI_Usuario_Reseña = @DNIUSUARIO
+	END
+ELSE
+	BEGIN
 		Insert into Reseñas(Id_Producto_Reseña, DNI_Usuario_Reseña, Contenido_Reseña, Calificacion_Reseña, Fecha_Reseña)
 		Values(@IDPRODUCTOS, @DNIUSUARIO, @CONTENIDO, @CALIFICACION, GETDATE())
-		END
-	ELSE
-		BEGIN
-		UPDATE Reseñas
-		SET Id_Producto_Reseña = @IDPRODUCTOS, DNI_Usuario_Reseña = @DNIUSUARIO, Contenido_Reseña = @CONTENIDO, Calificacion_Reseña = @CALIFICACION, Fecha_Reseña = GETDATE()
-		END
-END
+	END
+GO
+
+CREATE Procedure SP_EliminarReseña
+@IDPRODUCTOS INT,
+@DNIUSUARIO CHAR(10)
+
+AS
+
+UPDATE Reseñas
+SET Estado_Reseña = 0
+WHERE Id_Producto_Reseña = @IDPRODUCTOS and DNI_Usuario_Reseña = @DNIUSUARIO
+
+GO
+
+CREATE Procedure SP_VerificarExistenciaReseña
+@IDPRODUCTOS INT,
+@DNIUSUARIO CHAR(10)
+
+AS
+
+SELECT * 
+FROM ReseñasHabilitadas
+WHERE Id_Producto_Reseña = @IDPRODUCTOS and DNI_Usuario_Reseña = @DNIUSUARIO
 GO
 
 --agregar sub cat
@@ -3157,7 +3176,6 @@ BEGIN
 END
 GO	
 
-
 CREATE PROCEDURE SP_AgregarUsuario
 
 @DNI CHAR(10),
@@ -3176,8 +3194,8 @@ if exists (Select DNI_Usuario from Usuarios where DNI_Usuario=@DNI AND Estado_Us
 		WHERE DNI_Usuario = @DNI
 	END
 
-else INSERT INTO Usuarios(DNI_Usuario,Nombre_Usuario,Apellido_Usuario,Email_Usuario,Contraseña_Usuario)
-    SELECT @DNI, @NOMBRE, @APELLIDO, @EMAIL, @CONTRASEÑA
+else INSERT INTO Usuarios(DNI_Usuario,Nombre_Usuario,Apellido_Usuario,Email_Usuario,Contraseña_Usuario, FechaRegistrado)
+    SELECT @DNI, @NOMBRE, @APELLIDO, @EMAIL, @CONTRASEÑA, GETDATE()
 GO
 
 --Editar admin

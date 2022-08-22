@@ -12,6 +12,7 @@
 
 
 .contenedorCarro {
+    margin:0px;
     display: flex;
     justify-content: center;
     align-content: center;
@@ -36,7 +37,6 @@
 .ItemsCarro {
     border: solid #CAE6FB 8px;
     border-radius: 5px;
-    margin: 10px;
     display: flex;
     justify-content: space-around;
     align-items: center;

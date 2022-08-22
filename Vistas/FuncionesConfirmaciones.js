@@ -13,6 +13,11 @@ function ValidateInsertCategoria() {
     return false;
 }
 
+function ValidateInsertReseña() {
+    if (Page_ClientValidate('AgregarReseña'))
+        return confirm('¿Esta seguro que quiere agregar la reseña?')
+}
+
 function ValidateInsertSubCategoria() {
     if (Page_ClientValidate('AgregarSubCat'))
         return confirm('¿Desea insertar la SubCategoría ingresada?');
@@ -24,21 +29,8 @@ function prueba(Mensaje) {
     alert(mensaje);
 }
 
-function Confirm() {
-    var confirm_value = document.createElement("INPUT");
-    confirm_value.type = "hidden";
-    confirm_value.name = "confirm_value";
-    if (confirm("Do you want to save data?")) {
-        confirm_value.value = "Yes";
-    } else {
-        confirm_value.value = "No";
-    }
-    document.getElementById("MensajeConfirmacion").value = "hola";
-}
 
-function returnString() {
-    document.getElementById("MensajeConfirmacion").value = "Tajuddin";
-}
+
 
 
 

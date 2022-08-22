@@ -45,7 +45,7 @@ namespace DAO
             user.Email = tablaUsuarios.Rows[0][3].ToString();
             user.Contraseña = tablaUsuarios.Rows[0][4].ToString();
             user.EsAdmin = Convert.ToBoolean(tablaUsuarios.Rows[0][5]);
-            user.Estado = Convert.ToBoolean(tablaUsuarios.Rows[0][6]);
+            user.Estado = Convert.ToBoolean(tablaUsuarios.Rows[0][7]);
 
             return user;
         }

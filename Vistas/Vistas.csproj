@@ -69,6 +69,7 @@
     <Content Include="DetalleProductoMP.aspx" />
     <Content Include="EstilosCssVistas\Admin.css" />
     <Content Include="EstilosCssVistas\Carritoo.css" />
+    <Content Include="EstilosCssVistas\Carritto.css" />
     <Content Include="EstilosCssVistas\DetalleProductosss.css" />
     <Content Include="EstilosCssVistas\Footer.css" />
     <Content Include="EstilosCssVistas\Header.css" />

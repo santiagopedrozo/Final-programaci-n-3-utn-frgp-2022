@@ -47,5 +47,33 @@ namespace DAO
 
             return cn.ejecutarSP(cmd, "SP_AgregarReseña");
         }
+
+        private void ParamentrosIdentificarReseña(ref SqlCommand cmd, ReseñasProducto res)
+        {
+            SqlParameter parametro = new SqlParameter();
+
+            parametro = cmd.Parameters.Add("@IDPRODUCTOS", SqlDbType.Int);
+            parametro.Value = res.Producto.IdProducto;
+
+            parametro = cmd.Parameters.Add("@DNIUSUARIO", SqlDbType.Char, 10);
+            parametro.Value = res.Usuario.Dni;
+        }
+
+        public int EliminarReseña(ReseñasProducto res)
+        {
+            SqlCommand cmd = new SqlCommand();
+            ParamentrosIdentificarReseña(ref cmd, res);
+
+            return cn.ejecutarSP(cmd, "SP_EliminarReseña");
+        }
+
+        public int VerificarReseña(ReseñasProducto res)
+        {
+            SqlCommand cmd = new SqlCommand();
+            ParamentrosIdentificarReseña(ref cmd, res);
+
+            return cn.ejecutarSP(cmd, "SP_VerificarExistenciaReseña");
+        }
+
     }
 }

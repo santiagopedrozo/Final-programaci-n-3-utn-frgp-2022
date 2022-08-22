@@ -41,12 +41,6 @@
                         </ul>
                    </li>
                     <li><asp:Button ID="btnAgregar" runat="server" Text="Agregar al carrito" Width="201px" OnClick="btnAgregar_Click" cssclass="btn btn-primary"/></li>
-                    <li>
-                        <div ID="ErrorCarrito" class="alert alert-danger" runat="server" visible="False">
-                            <strong>Error</strong> Para agregar productos al carro debe iniciar sesión
-                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                        </div>
-                    </li>
                 </ul>
             </div>
         </div>
@@ -66,9 +60,15 @@
         <div class="ListadoResenias" >
             <h4>Reseñas</h4>
             <asp:Label ID="lblVacio" runat="server" Text="Este producto no cuenta con reseñas" Visible ="false"></asp:Label>
-            <asp:DataList ID="dlResenias" runat="server"  OnItemDataBound="dlResenias_ItemDataBound">
+            <div ID="MsgCorrectoDiv" runat="server" visible="false" class="alert alert-success alert-dismissible fade show">
+                <strong style="font-size:13px;">Correcto</strong> 
+                <asp:Label ID="lblCorrecto" runat="server" Text="" Font-Size="13px"></asp:Label>
+                <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+            </div>
+            <asp:DataList ID="dlResenias" runat="server"  OnItemDataBound="dlResenias_ItemDataBound" OnDeleteCommand="dlResenias_DeleteCommand">
                 <ItemTemplate>
                     <div class="Item">
+                        <asp:Label ID="lblDni" runat="server" Text='<%# Eval("DNI_Usuario_Reseña") %>' Visible="false" ></asp:Label>
                         <asp:Label ID="lblResenia" runat="server" Text='<%# Eval("Contenido_Reseña") %>'></asp:Label>
                         <br />
                         <asp:LinkButton ID="lb1" runat="server" Visible="false"><i class="fa-solid fa-star"></i></asp:LinkButton>
@@ -77,7 +77,9 @@
                         <asp:LinkButton ID="lb4" runat="server" Visible="false"><i class="fa-solid fa-star"></i></asp:LinkButton>
                         <asp:LinkButton ID="lb5" runat="server" Visible="false"><i class="fa-solid fa-star"></i></asp:LinkButton>    
                         <asp:Label ID="lblCalificacion" runat="server" Text='<%# Eval("Calificacion_Reseña") %>' Visible="false" ></asp:Label>
+                        <asp:LinkButton ID="lnkDelete" runat="server" text="<i class='fa-solid fa-trash'></i>" CommandName="Delete" OnClientClick="return confirm('¿Esta seguro que quiere eliminar esta reseña?')" Visible="false"></asp:LinkButton>
                         <hr />
+                        
                     </div>
                 </ItemTemplate>
             </asp:DataList>
@@ -86,8 +88,15 @@
         <div id="AgregarReseñaDiv" runat="server" visible="false" >
             <div class="AgregarReseniaContenedor">
                 <ul class="AgregarReseniaUl">
+                    <li>
+                        <div ID="MsgErrorRsniaDiv" class="alert alert-danger" runat="server" visible="false">
+                            <strong style="font-size:13px;">Error</strong> 
+                            <asp:Label ID="lblError" runat="server" Font-Size="13px"></asp:Label>
+                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                        </div>
+                    </li>
                     <li><h4>Deja tu reseña del producto</h4></li>
-                    <li><asp:TextBox ID="txtReseña" textmode="MultiLine" runat="server" style="resize:none;" Height="93px" Width="384px" ValidationGroup="reseña" MaxLength="100" Rows="3"></asp:TextBox></li>
+                    <li><asp:TextBox ID="txtReseña" textmode="MultiLine" runat="server" style="resize:none;" Height="93px" Width="384px" MaxLength="100" Rows="3"></asp:TextBox></li>
                     <li>
                         <asp:LinkButton ID="str1" runat="server" cssclass="starIngreso" OnClick="str1_Click"><i class="fa-solid fa-star" ></i></asp:LinkButton>
                         <asp:LinkButton ID="str2" runat="server" cssclass="starIngreso" OnClick="str2_Click"><i class="fa-solid fa-star" ></i></asp:LinkButton>
@@ -95,14 +104,7 @@
                         <asp:LinkButton ID="str4" runat="server" cssclass="starIngreso" OnClick="str4_Click"><i class="fa-solid fa-star" ></i></asp:LinkButton>
                         <asp:LinkButton ID="str5" runat="server" cssclass="starIngreso" OnClick="str5_Click"><i class="fa-solid fa-star" ></i></asp:LinkButton>
                     </li>
-                    <li><asp:Button ID="btnEnviarReseña" runat="server" Text="Enviar Reseña" ValidationGroup="reseña" OnClick="btnEnviarReseña_Click" cssclass="btn btn-primary" OnClientClick="return confirm('¿Esta seguro que quiere agregar la reseña?')"/></li>
-                    <li>
-                        <div ID="MsgErrorRsniaDiv" class="alert alert-danger" runat="server" visible="false">
-                            <strong>Error</strong> 
-                            <asp:Label ID="lblError" runat="server" Text=""></asp:Label>
-                            <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
-                        </div>
-                    </li>
+                    <li><asp:Button ID="btnEnviarReseña" runat="server" Text="Enviar Reseña" OnClick="btnEnviarReseña_Click" cssclass="btn btn-primary" OnClientClick="return ValidateInsertReseña();"/></li>
                 </ul>
             </div>
         </div>   

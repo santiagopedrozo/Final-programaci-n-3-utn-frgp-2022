@@ -12,8 +12,8 @@ namespace DAO
     public class Conexion
     {
         private string ruta =
-       //base local //"Data Source=localhost\\sqlexpress;Initial Catalog=TifLabo3;Integrated Security=True";
-       /*base hosting*/ "Data Source=sql5053.site4now.net;Initial Catalog = db_a8ac12_mgsmarter; Persist Security Info=True;User ID = db_a8ac12_mgsmarter_admin; Password=polno2003";
+       "Data Source=localhost\\sqlexpress;Initial Catalog=TifLabo3;Integrated Security=True";
+       ///*base hosting*/ "Data Source=sql5053.site4now.net;Initial Catalog = db_a8ac12_mgsmarter; Persist Security Info=True;User ID = db_a8ac12_mgsmarter_admin; Password=polno2003";
         public SqlConnection ObtenerConexion()
         {
             SqlConnection cn = new SqlConnection(ruta);

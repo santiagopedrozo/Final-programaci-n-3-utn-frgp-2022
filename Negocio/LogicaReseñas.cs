@@ -23,6 +23,20 @@ namespace Negocio
             return dRes.agregarReseña(res) == 1;
         }
 
+        public bool EliminarReseña(ReseñasProducto res)
+        {
+            return dRes.EliminarReseña(res) == 1;
+        }
+
+        public bool VerificarReseña(ReseñasProducto res)
+        {
+            if (dRes.VerificarReseña(res) == 1)
+                return true;
+            else
+                return false;
+        }
+
+
         public DataTable ultimas10Reseñas(Productos prod)
         {
             return dRes.ultimas10Reseñas(prod);
